@@ -41,6 +41,7 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        salir = new javax.swing.JButton();
         usuarioTextField = new javax.swing.JTextField();
         contrasenaTextField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -48,9 +49,16 @@ public class InicioSesion extends javax.swing.JFrame {
         registrarseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 856));
-        setPreferredSize(new java.awt.Dimension(1000, 856));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        salir.setBackground(new java.awt.Color(0, 0, 102));
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Delete.png"))); // NOI18N
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, -1, -1));
         getContentPane().add(usuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 320, 50));
         getContentPane().add(contrasenaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 320, 50));
 
@@ -112,6 +120,13 @@ public class InicioSesion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inicioSesionButtonActionPerformed
 
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+        PantallaPrincipal p=new PantallaPrincipal();
+        p.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -119,6 +134,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton inicioSesionButton;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton registrarseButton;
+    private javax.swing.JButton salir;
     private javax.swing.JTextField usuarioTextField;
     // End of variables declaration//GEN-END:variables
 }

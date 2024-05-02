@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author Laboratorios
  */
 public class Fondo {
-    Juego pokemon;
+    Juego cocina;
     
     int anchoFondo=1000;
     int altoFondo=856;
@@ -23,8 +23,8 @@ public class Fondo {
     int x2=0;
     int y2=0;
     
-    public Fondo(Juego pokemon){
-        this.pokemon=pokemon;
+    public Fondo(Juego cocina){
+        this.cocina=cocina;
     }
     public void paint(Graphics2D g){
         ImageIcon imagenFondo=new ImageIcon(getClass().getResource("/Multimedia/fondo2.png"));

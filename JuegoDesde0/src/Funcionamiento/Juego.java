@@ -85,10 +85,10 @@ public class Juego extends javax.swing.JPanel {
         Graphics2D g1=g,g2=g;
         Font score =new Font("Arial",Font.BOLD,30);
         g.setFont(score);
-        g.setColor(Color.blue);
+        g.setColor(Color.getHSBColor(180, 93, 17));
         g1.drawString("Puntaje: "+puntos,500 ,30 );
-        g1.drawString("Vidas: "+vidas,20 ,30 );
-        g1.drawString("Usuario: "+nombre,300 ,30 );
+        g1.drawString("Vidas: "+vidas,50,30 );
+        g1.drawString("Usuario: "+nombre,250 ,30 );
         if(juegoFinalizado){
             g2.setColor(Color.yellow);
             g2.drawString("Haz perdido", ((float)getBounds().getCenterX()/2)+170, 70);

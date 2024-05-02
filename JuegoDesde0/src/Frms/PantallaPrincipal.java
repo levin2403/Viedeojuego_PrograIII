@@ -89,7 +89,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void AcercaDeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcercaDeButtonActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Este juego fue creado por:\n-Jesús Tapia\n-Alexa Picos\n-Kimberly Martínez");
+        JOptionPane.showMessageDialog(this, "Este juego fue creado por:\n-Jesús Tapia\n-Alexa Picos\n-Kimberli Martínez\n-Kevin Sanchez");
     }//GEN-LAST:event_AcercaDeButtonActionPerformed
 
     private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed

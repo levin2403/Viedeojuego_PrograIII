@@ -35,6 +35,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PantallaPrincipal = new javax.swing.JLabel();
         Jugar = new javax.swing.JButton();
         AcercaDeButton = new javax.swing.JButton();
+        ayudaButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -65,6 +66,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         getContentPane().add(AcercaDeButton);
         AcercaDeButton.setBounds(580, 620, 280, 50);
 
+        ayudaButton.setText("jButton1");
+        ayudaButton.setBorderPainted(false);
+        ayudaButton.setContentAreaFilled(false);
+        ayudaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ayudaButton);
+        ayudaButton.setBounds(630, 500, 180, 50);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -79,6 +91,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Este juego fue creado por:\n-Jesús Tapia\n-Alexa Picos\n-Kimberly Martínez");
     }//GEN-LAST:event_AcercaDeButtonActionPerformed
+
+    private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed
+        // TODO add your handling code here:
+        ComoJugar comoJugar=new ComoJugar();
+        this.dispose();
+    }//GEN-LAST:event_ayudaButtonActionPerformed
     
     
    
@@ -87,5 +105,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton AcercaDeButton;
     private javax.swing.JButton Jugar;
     private javax.swing.JLabel PantallaPrincipal;
+    private javax.swing.JButton ayudaButton;
     // End of variables declaration//GEN-END:variables
 }

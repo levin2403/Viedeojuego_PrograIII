@@ -38,6 +38,7 @@ public class Juego extends javax.swing.JPanel {
         this.setSize(1000,856);
         this.setLocation(70,200);
         this.setVisible(true);
+        
         //direccionSonidoChoque=getClass().getResource("");
         addKeyListener(new KeyListener(){
             @Override

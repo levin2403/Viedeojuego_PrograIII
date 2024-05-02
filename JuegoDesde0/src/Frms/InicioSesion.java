@@ -41,73 +41,41 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inicioSesionButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         usuarioTextField = new javax.swing.JTextField();
-        registrarseButton = new javax.swing.JButton();
         contrasenaTextField = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        inicioSesionButton = new javax.swing.JButton();
+        registrarseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 856));
+        setPreferredSize(new java.awt.Dimension(1000, 856));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(usuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 320, 50));
+        getContentPane().add(contrasenaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 320, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/EL chef comelon.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         inicioSesionButton.setText("Iniciar Sesion");
+        inicioSesionButton.setBorderPainted(false);
+        inicioSesionButton.setContentAreaFilled(false);
         inicioSesionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioSesionButtonActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("Contraseña");
-
-        jLabel2.setText("Usuario");
+        getContentPane().add(inicioSesionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, 370, 50));
 
         registrarseButton.setText("Registrarse");
+        registrarseButton.setBorderPainted(false);
+        registrarseButton.setContentAreaFilled(false);
         registrarseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarseButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(306, 306, 306)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inicioSesionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registrarseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(522, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(contrasenaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(usuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(256, 256, 256))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contrasenaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(inicioSesionButton)
-                .addGap(78, 78, 78)
-                .addComponent(registrarseButton)
-                .addGap(55, 55, 55))
-        );
+        getContentPane().add(registrarseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 690, 360, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,6 +98,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 ventana.setSize(1000, 856);
                 ventana.setLocation(70, 200);
                 ventana.add(cocina);
+                ventana.setLocationRelativeTo(null);
                 ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ventana.setVisible(true);
                 Thread thread = new Thread(new HiloEjecucion(cocina));
@@ -148,8 +117,7 @@ public class InicioSesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contrasenaTextField;
     private javax.swing.JButton inicioSesionButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton registrarseButton;
     private javax.swing.JTextField usuarioTextField;
     // End of variables declaration//GEN-END:variables

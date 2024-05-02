@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Frms/Main.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/ManejoDeDatos/UsuarioException.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Frms/Personaje.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/ManejoDeDatos/ManejoDeUsuario.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/ManejoDeDatos/Usuario.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Frms/InicioSesion.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Funcionamiento/Juego.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Funcionamiento/HiloEjecucion.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Frms/Registrarse.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/JuegoDesde0/src/Frms/PantallaPrincipal.java</file>
+        </group>
     </open-files>
 </project-private>

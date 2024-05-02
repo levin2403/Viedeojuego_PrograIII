@@ -92,7 +92,9 @@ public class Registrarse extends javax.swing.JFrame {
                 if (!contrasenaTextField.getText().equals(contrasenaTextField.getText())) {
                     JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden");
                 } else {
+                    
                     manejoDeUsuario.guardarNuevoUsuario(usuario);
+                    InicioSesion inicioSesion=new InicioSesion();
                     this.dispose();
                 }
             } catch (Exception e) {

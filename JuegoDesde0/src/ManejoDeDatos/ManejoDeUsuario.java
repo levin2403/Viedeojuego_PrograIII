@@ -65,8 +65,13 @@ public class ManejoDeUsuario {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(" ");
-                String usuarioTemp = parts[1];;
-                if (usuarioTemp.equals(usuario.getUsuario())) {
+                if(parts[0].equals("")){
+                    break;
+                }
+                String usuarioTemp = parts[1];
+                String usuarioNombre=usuario.getUsuario();
+                System.out.println(parts[1]);                
+                if (usuarioTemp.equals(usuarioNombre)) {
                     throw new UsuarioException("Ese nombre de usuario ya existe");
                 }
             }

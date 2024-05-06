@@ -7,6 +7,7 @@ package Frms;
 import Funcionamiento.HiloEjecucion;
 import Funcionamiento.Juego;
 import ManejoDeDatos.Usuario;
+import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -96,18 +97,20 @@ public class DatosUsuario extends javax.swing.JFrame {
                 ventana.add(cocina);
                 ventana.setLocationRelativeTo(null);
                 ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+                Thread thread = new Thread(new HiloEjecucion(cocina));
+                thread.start();
+                this.setVisible(false);
                 cocina.addPropertyChangeListener("enabled", event -> {
                     if (!cocina.isEnabled()) {
+                        thread.interrupt();
                         ventana.dispose();
+                        
                     }
                 });
 
                 ventana.setVisible(true);
 
-                Thread thread = new Thread(new HiloEjecucion(cocina));
-                thread.start();
-                this.setVisible(false);
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario no encontrado");
             }

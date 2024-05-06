@@ -5,22 +5,27 @@
 package Funcionamiento;
 
 import Funcionamiento.Juego;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  *
  * @author USER
  */
 public class HiloEjecucion extends Thread {
-    Juego cocina;
+
+    private Juego cocina;
+    private AtomicBoolean ejecutar = new AtomicBoolean(true);
 
     public HiloEjecucion(Juego cocina) {
         this.cocina = cocina;
     }
-    
-    
+    public void detener() {
+        ejecutar.set(false);
+    }
+
     @Override
     public void run() {
-        while (true) {
+        while (ejecutar.get()) { 
             cocina.repaint();
             try {
                 Thread.sleep(10);

@@ -5,6 +5,7 @@
 package Funcionamiento;
 
 import Frms.DatosUsuario;
+import Frms.GameOver;
 import ManejoDeDatos.ManejoDeUsuario;
 import ManejoDeDatos.Usuario;
 import java.applet.AudioClip;
@@ -103,11 +104,11 @@ public class Juego extends javax.swing.JPanel {
                 vidas--;
                 if (vidas == 0) {
                     try {
-                        JOptionPane.showMessageDialog(this, "Has perdido");
                         manejoDeUsuario.cambiarPuntuacionUsuario(usuario.getUsuario(), puntos);
                         usuario.setPuntuacion(puntos);
+                        GameOver gameOver=new GameOver(manejoDeUsuario.buscarUsuario(usuario));
                         this.setEnabled(false);
-                        DatosUsuario datosUsuario=new DatosUsuario(manejoDeUsuario.buscarUsuario(usuario));
+                        
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(this, e.getMessage());
                     }

@@ -6,6 +6,7 @@ package ManejoDeDatos;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.regex.Matcher;
@@ -54,10 +55,14 @@ public class ManejoDeUsuario {
                 }
             }
             reader.close();
+            if (usuarioEncontrado == null) {
+                throw new UsuarioException("No se encontro un usuario con esas caracteristicas");
+            }
+            return usuarioEncontrado;
         } catch (Exception e) {
-            throw new UsuarioException("No se encontro un usuario con esas caracteristicas"+e.getMessage());
+            throw new UsuarioException("No se encontro un usuario con esas caracteristicas" + e.getMessage());
         }
-        return usuarioEncontrado;
+
     }
     public void comprobarUsuarioRegistrado(Usuario usuario) throws UsuarioException {
         try {
@@ -82,5 +87,62 @@ public class ManejoDeUsuario {
         }
     }
 
-    
+    public void cambiarPuntuacionUsuario(String nombreUsuario, int nuevaPuntuacion) throws UsuarioException {
+        try {
+            File archivoTemporal = new File("TempDatosUsuarios.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(BaseDeDatos));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(archivoTemporal));
+
+            String linea;
+            boolean usuarioEncontrado = false;
+            while ((linea = reader.readLine()) != null) {
+                String[] partes = linea.split(" ");
+                String usuarioTemp = partes[1];
+                String contrasenaTemp = partes[3];
+                int puntuacionActual = Integer.parseInt(partes[5]);
+
+                if (usuarioTemp.equals(nombreUsuario)) {
+                    usuarioEncontrado = true;
+                    if (nuevaPuntuacion > puntuacionActual) {
+                        linea = "Usuario: " + usuarioTemp + " Contraseña: " + contrasenaTemp + " Puntuacion: " + nuevaPuntuacion;
+                    }
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+            reader.close();
+            writer.close();
+            
+
+            if (!usuarioEncontrado) {
+                throw new UsuarioException("No se encontró ningún usuario con ese nombre");
+            }
+            
+            File archivo = new File(BaseDeDatos);
+            BufferedReader reader1 = new BufferedReader(new FileReader(archivoTemporal));
+            BufferedWriter writer1 = new BufferedWriter(new FileWriter(archivo));
+            while ((linea = reader1.readLine()) != null) {
+                String[] partes = linea.split(" ");
+                String usuarioTemp = partes[1];
+                String contrasenaTemp = partes[3];
+                int puntuacionActual = Integer.parseInt(partes[5]);
+
+                if (usuarioTemp.equals(nombreUsuario)) {
+                    usuarioEncontrado = true;
+                    if (nuevaPuntuacion > puntuacionActual) {
+                        linea = "Usuario: " + usuarioTemp + " Contraseña: " + contrasenaTemp + " Puntuacion: " + nuevaPuntuacion;
+                    }
+                }
+                writer1.write(linea);
+                writer1.newLine();
+            }
+            reader1.close();
+            writer1.close();
+
+            System.out.println("Se cambió la puntuación del usuario correctamente");
+        } catch (Exception e) {
+            throw new UsuarioException("Error al cambiar la puntuación del usuario: " + e.getMessage());
+        }
+    }
+
 }

@@ -18,11 +18,7 @@ import javax.swing.ImageIcon;
 public class Personaje {
     Juego cocina;
     
-    static boolean saltando=false;
-    boolean sube= false;
-    boolean baja= false;
     
-    Area naveDelantera,naveAtras,modelo,nave;
     
     int anchoPersonaje =100;
     int altoPersonaje =100;
@@ -48,23 +44,27 @@ public class Personaje {
     }
     
     public void mover() {
-        
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastImageChangeTime >= IMAGE_CHANGE_INTERVAL) { 
-            lastImageChangeTime = currentTime; 
-            
-            
-            if (x_auxiliar != 0) { 
-                currentWalkingImageIndex++; 
-                if (currentWalkingImageIndex >= walkingImages.length) { 
-                    currentWalkingImageIndex = 0; 
+        if (currentTime - lastImageChangeTime >= IMAGE_CHANGE_INTERVAL) {
+            lastImageChangeTime = currentTime;
+
+            if (x_auxiliar != 0) {
+                currentWalkingImageIndex++;
+                if (currentWalkingImageIndex >= walkingImages.length) {
+                    currentWalkingImageIndex = 0;
                 }
-            } else { 
-                currentWalkingImageIndex = 0; 
+            } else {
+                currentWalkingImageIndex = 0;
             }
         }
-        
+        int limiteIzquierdo = 0;
+        int limiteDerecho = 900; 
         x_inicial += x_auxiliar;
+        if (x_inicial < limiteIzquierdo) {
+            x_inicial = limiteIzquierdo;
+        } else if (x_inicial > limiteDerecho) {
+            x_inicial = limiteDerecho;
+        }
     }
     
     public void paint(Graphics2D g) {
@@ -82,9 +82,7 @@ public class Personaje {
     }
     
     public void keyPressed(KeyEvent ke) {
-        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-            saltando = true;
-        } else if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+         if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
             x_auxiliar = -5;
         } else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
             x_auxiliar = 5; 
@@ -92,12 +90,21 @@ public class Personaje {
     }
 
     public void keyReleased(KeyEvent ke) {
-        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-            saltando = false;
-        } else if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+        if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_RIGHT) {
             x_auxiliar = 0;
         }
     }
+
+    public int getX_inicial() {
+        return x_inicial;
+    }
+
+    public int getY_inicial() {
+        return y_inicial;
+    }
+
+    
+    
     
     
 }

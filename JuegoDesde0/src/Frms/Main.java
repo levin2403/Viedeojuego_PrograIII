@@ -14,7 +14,7 @@ import javax.sound.sampled.Clip;
  */
 public class Main {
     public static void main(String[] args) {
-            try{
+            /*try{
                 Clip clip=AudioSystem.getClip();
                 AudioInputStream inputStream=AudioSystem.getAudioInputStream(Main.class.getResourceAsStream("/Sonidos/musicaJuego.wav"));
             clip.open(inputStream);
@@ -22,7 +22,7 @@ public class Main {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             }catch(Exception e){
                 System.err.println("error al reproducir la musica"+e.getMessage());
-            }
+            }*/
         PantallaPrincipal p=new PantallaPrincipal();
     }
 }

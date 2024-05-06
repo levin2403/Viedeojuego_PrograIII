@@ -98,23 +98,11 @@ public class InicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Usuario usuarioTemp = new Usuario(usuarioTextField.getText(), contrasenaTextField.getText());
+            System.out.println(usuarioTemp);
             Usuario usuario = manejoDeUsuarios.buscarUsuario(usuarioTemp);
-
-            if (usuario != null) {
-                JFrame ventana = new JFrame("Cocina");
-                Juego cocina = new Juego(usuarioTextField.getText());
-                ventana.setSize(1000, 856);
-                ventana.setLocation(70, 200);
-                ventana.add(cocina);
-                ventana.setLocationRelativeTo(null);
-                ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ventana.setVisible(true);
-                Thread thread = new Thread(new HiloEjecucion(cocina));
-                thread.start();
-                this.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Usuario no encontrado");
-            }
+            System.out.println(usuario);
+            DatosUsuario datosUsuario=new DatosUsuario(usuario);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }

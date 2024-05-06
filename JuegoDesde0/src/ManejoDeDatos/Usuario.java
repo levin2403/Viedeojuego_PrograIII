@@ -49,6 +49,11 @@ public class Usuario {
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "usuario=" + usuario + ", contrasena=" + contrasena + ", puntuacion=" + puntuacion + '}';
+    }
     
     
 

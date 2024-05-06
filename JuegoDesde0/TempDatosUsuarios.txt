@@ -1,0 +1,3 @@
+Usuario: Luisito Contraseña: Luisito2004 Puntuacion: 0
+Usuario: Luisito1 Contraseña: Luisito2004 Puntuacion: 0
+Usuario: Pepe123 Contraseña: Julito2004 Puntuacion: 6

@@ -1,5 +1,3 @@
-Usuario: JeFra Contraseña: Sally2021 Puntuacion: 0
-Usuario: Gael Contraseña: Gael2004 Puntuacion: 0
-Usuario: Gael2 Contraseña: Gael2004 Puntuacion: 0
-Usuario: kim Contraseña: 1111111A Puntuacion: 0
-Usuario: kimi Contraseña: 1111111A Puntuacion: 0
+Usuario: Luisito Contraseña: Luisito2004 Puntuacion: 0
+Usuario: Luisito1 Contraseña: Luisito2004 Puntuacion: 0
+Usuario: Pepe123 Contraseña: Julito2004 Puntuacion: 6

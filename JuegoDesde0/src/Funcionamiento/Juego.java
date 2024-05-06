@@ -4,6 +4,7 @@
  */
 package Funcionamiento;
 
+import ManejoDeDatos.ManejoDeUsuario;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Font;
@@ -12,17 +13,23 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Laboratorios
  */
 public class Juego extends javax.swing.JPanel {
+    ManejoDeUsuario manejoDeUsuario=new ManejoDeUsuario();
     //URL direccionSonidoSalto,direccionSonidoChoque;
     //AudioClip sonidoChoque,sonidoSalto;
     
     Personaje personaje=new Personaje(this);
     Fondo fondo=new Fondo(this);
+    List<Comida> comidas=new ArrayList<>();
+    List<Comida> comidasMalas=new ArrayList<>();
     
     static boolean juegoFinalizado=false;
     static boolean pierdeVida=false;
@@ -38,6 +45,14 @@ public class Juego extends javax.swing.JPanel {
         this.setSize(1000,856);
         this.setLocation(70,200);
         this.setVisible(true);
+        for (int i = 0; i < 5; i++) {
+            String comidaNombre="comida"+i;
+            comidas.add(new Comida(this, comidaNombre,false));
+        }
+        for (int i = 0; i < 4; i++) {
+            String comidaNombreMala="comidaMala"+i;
+            comidas.add(new Comida(this, comidaNombreMala,true));
+        }
         
         //direccionSonidoChoque=getClass().getResource("");
         addKeyListener(new KeyListener(){
@@ -62,8 +77,46 @@ public class Juego extends javax.swing.JPanel {
     }
     
     public void mover(){
-        
+        for (int i = 0; i < comidas.size(); i++) {
+            comidas.get(i).mover();
+            colisionComida(comidas.get(i));
+            if(!comidas.get(i).activo){
+            }
+        }
+        for (int i = 0; i < comidasMalas.size(); i++) {
+            comidasMalas.get(i).mover();
+            colisionComida(comidasMalas.get(i));
+            if(!comidasMalas.get(i).activo){
+            }
+        }
         personaje.mover();
+    }
+    
+    public void colisionComida(Comida comida) {
+        if (personaje.getX_inicial() >= comida.getIzquierda()
+                && personaje.getX_inicial() <= comida.getDerecha()
+                && personaje.getY_inicial() >= comida.getArriba()
+                && personaje.getY_inicial() <= comida.getAbajo()) {
+            if (comida.isComidaMala()) {
+                vidas--;
+                if (vidas == 0) {
+                    try {
+                        JOptionPane.showMessageDialog(this, "Has perdido");
+                        manejoDeUsuario.cambiarPuntuacionUsuario(nombre, puntos);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, e.getMessage());
+                    }
+                }
+            } else {
+                if (comida.getEspera() > 21) {
+                    comida.setEspera(comida.getEspera() - 20);
+                }
+                puntos++;
+                comida.setY_auxiliar(comida.getY_auxiliar() + 1);
+            }
+            comida.setX_inicial(comida.generadorDePosicion());
+            comida.setY_inicial(0);
+        }
     }
     
     @Override
@@ -76,6 +129,9 @@ public class Juego extends javax.swing.JPanel {
     
     public void dibujar(Graphics2D g){
         fondo.paint(g);
+        for (int i = 0; i < comidas.size(); i++) {
+            comidas.get(i).paint(g);
+        }
         personaje.paint(g);
         
         mover();

@@ -4,7 +4,9 @@
  */
 package Funcionamiento;
 
+import Frms.DatosUsuario;
 import ManejoDeDatos.ManejoDeUsuario;
+import ManejoDeDatos.Usuario;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Font;
@@ -36,12 +38,12 @@ public class Juego extends javax.swing.JPanel {
     static int vidas=3;
     static int puntos=0;
     static int nivel=1;
-    private String nombre;
+    private Usuario usuario;
     /**
      * Creates new form Juego
      */
-    public Juego(String nombre) {
-        this.nombre=nombre;
+    public Juego(Usuario usuario) {
+        this.usuario=usuario;
         this.setSize(1000,856);
         this.setLocation(70,200);
         this.setVisible(true);
@@ -102,7 +104,10 @@ public class Juego extends javax.swing.JPanel {
                 if (vidas == 0) {
                     try {
                         JOptionPane.showMessageDialog(this, "Has perdido");
-                        manejoDeUsuario.cambiarPuntuacionUsuario(nombre, puntos);
+                        manejoDeUsuario.cambiarPuntuacionUsuario(usuario.getUsuario(), puntos);
+                        usuario.setPuntuacion(puntos);
+                        this.setEnabled(false);
+                        DatosUsuario datosUsuario=new DatosUsuario(manejoDeUsuario.buscarUsuario(usuario));
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(this, e.getMessage());
                     }
@@ -144,7 +149,7 @@ public class Juego extends javax.swing.JPanel {
         g.setColor(Color.getHSBColor(180, 93, 17));
         g1.drawString("Puntaje: "+puntos,500 ,30 );
         g1.drawString("Vidas: "+vidas,50,30 );
-        g1.drawString("Usuario: "+nombre,250 ,30 );
+        g1.drawString("Usuario: "+usuario.getUsuario(),250 ,30 );
         if(juegoFinalizado){
             g2.setColor(Color.yellow);
             g2.drawString("Haz perdido", ((float)getBounds().getCenterX()/2)+170, 70);

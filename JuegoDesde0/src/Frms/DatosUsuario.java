@@ -87,17 +87,24 @@ public class DatosUsuario extends javax.swing.JFrame {
 
     private void JugarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarButtonActionPerformed
         // TODO add your handling code here:
-        
         try {
             if (usuario != null) {
                 JFrame ventana = new JFrame("Cocina");
-                Juego cocina = new Juego(usuario.getUsuario());
+                Juego cocina = new Juego(usuario);
                 ventana.setSize(1000, 856);
                 ventana.setLocation(70, 200);
                 ventana.add(cocina);
                 ventana.setLocationRelativeTo(null);
                 ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                cocina.addPropertyChangeListener("enabled", event -> {
+                    if (!cocina.isEnabled()) {
+                        ventana.dispose();
+                    }
+                });
+
                 ventana.setVisible(true);
+
                 Thread thread = new Thread(new HiloEjecucion(cocina));
                 thread.start();
                 this.setVisible(false);
